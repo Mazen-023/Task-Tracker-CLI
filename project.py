@@ -2,6 +2,7 @@ import argparse
 import json
 from datetime import datetime
 from tabulate import tabulate  # type: ignore
+import pyttsx3  # type: ignore
 
 
 def main():
@@ -27,35 +28,35 @@ def main():
     # Apply the requested operation and save changes
     def handle_add():
         result = add(data, args.a)
-        print(f"Task {result['id']} added successfully.")
+        confirm(f"Task {result['id']} added successfully.")
 
     def handle_update():
         result = update(data, *args.u)
         if result:
-            print(f"Task {result['id']} updated successfully.")
+            confirm(f"Task {result['id']} updated successfully.")
         else:
-            print("Task not found.")
+            confirm("Task not found.")
 
     def handle_delete():
         result = delete(data, args.d)
         if result:
-            print(f"Task {result['id']} deleted successfully.")
+            confirm(f"Task {result['id']} deleted successfully.")
         else:
-            print("Task not found.")
+            confirm("Task not found.")
 
     def handle_mark_completed():
         result = mark(data, args.mc, "completed")
         if result:
-            print(f"Task {result['id']} marked as completed.")
+            confirm(f"Task {result['id']} marked as completed.")
         else:
-            print("Task not found.")
+            confirm("Task not found.")
 
     def handle_mark_in_progress():
         result = mark(data, args.mi, "in-progress")
         if result:
-            print(f"Task {result['id']} marked as in-progress.")
+            confirm(f"Task {result['id']} marked as in-progress.")
         else:
-            print("Task not found.")
+            confirm("Task not found.")
 
     # Action dispatch table
     actions = [
@@ -184,6 +185,14 @@ def list_tasks(data: list, status: str | None = None) -> None:
 
     # Print the table using tabulate
     print(tabulate(table, headers, tablefmt="grid"))
+
+
+def confirm(pharse: str) -> None:
+    # Initialize engine for text-to-speech feature
+    engine = pyttsx3.init()
+    print(pharse)
+    engine.say(pharse)
+    engine.runAndWait()
 
 
 if __name__ == "__main__":

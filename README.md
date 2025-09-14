@@ -46,6 +46,7 @@ Project dependencies specification includes:
 
 * `tabulate` for beautiful table formatting
 * `pytest` for testing
+* `pyttsx3` for text-to-speech functionality
 
 ## Project Functionalities
 
@@ -141,6 +142,19 @@ Displays tasks in a formatted table using the tabulate library.
 :param status: Optional status filter ("completed", "in-progress")
 :type status: str | None
 :return: None (prints to console)
+:rtype: None
+"""
+```
+
+__confirm(pharse)__
+
+```
+"""
+Speaks a given phrase aloud using text-to-speech and prints it to the console.
+
+:param pharse: The phrase to be spoken and printed
+:type pharse: str
+:return: None
 :rtype: None
 """
 ```

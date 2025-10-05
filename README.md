@@ -1,6 +1,6 @@
 # Task Tracker CLI
 #### Video Demo:  <URL [HERE](https://youtu.be/8bB_1TBx-0A)>
-#### Repo URL:  <URL [HERE](https://github.com/Mazen-023/Task-Tracker-CLI)>
+#### Repo URL:  <URL [HERE](https://roadmap.sh/projects/task-tracker)>
 
 ## Description:
 
